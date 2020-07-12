@@ -1,4 +1,4 @@
-const LINE_TOKEN = 'z/sQYOe9Lml8zGvq480Jawjw2PUlkzWC9jAX4AwYHoII1WlO3ETeWM8UnCnpkHFl9tU8ngXI7NECCNEcP9B4tNTTQ72AqpNLCv/jmzPPfHxdh/N2HIAAwWYsVYZoWtrro8PElsOnNz1kwE95sIZNjAdB04t89/1O/w1cDnyilFU=';
+const LINE_TOKEN =  PropertiesService.getScriptProperties().getProperty("TOKEN");
 const LINE_URL = 'https://api.line.me/v2/bot/message/reply';
 
 //postリクエストを受取ったときに発火する関数
@@ -17,7 +17,7 @@ function doPost(e) {
   const messages = [
     {
       'type': 'text',
-      'text':  userMessage,//オウム返し
+      'text':  `${userMessage}\n\nデータ入力中...`,//オウム返し
     }
   ]
 
@@ -58,7 +58,7 @@ function doPost(e) {
 
   const after_msg = {
     'type': 'text',
-    'text': `今日の日付とデータ入力完了！\n日時：${dateNow}`,
+    'text': `データ入力完了！\n日時：${dateNow}`,
   }
   messages.push(after_msg);
 　
